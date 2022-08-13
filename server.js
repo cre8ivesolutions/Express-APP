@@ -1,34 +1,9 @@
-//
-// DEPENDENCIES
 const express = require('express')
-// const mongoose = require('mongoose')
-// const languagesController = require('./controllers/language_controller')
-
-// CONFIGURATION
-require('dotenv').config()
-const PORT = process.env.PORT
 const app = express()
+require('dotenv').config()
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true, 
-  useUnifiedTopology: true}, 
-    () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
-)
-
-// MIDDLEWARE
-// app.use(express.urlencoded({extended: true}))
-
-// ROUTES
 app.get('/', (req, res) => {
   res.send('Hello, world!')
 })
-// Languages: 
-// app.use('/languages', languagesController)
 
-// Random Languages: 
-// app.use('/languages/random', languagesController)
-
-// LISTEN
-app.listen(PORT, () => {
-  console.log('Greetings! From port: ', PORT);
-})
+app.listen(process.env.PORT)
